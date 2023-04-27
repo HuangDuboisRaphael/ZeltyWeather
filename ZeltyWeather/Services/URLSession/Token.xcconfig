@@ -8,4 +8,5 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
+// TODO: This file normally needs to be added in .gitignore file to avoid credential leaks, and employees should keep locally their token.
 API_KEY = 04f9398e32383d6ae628d50a946848e2

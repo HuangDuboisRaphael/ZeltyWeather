@@ -316,6 +316,7 @@
 /* Begin XCBuildConfiguration section */
 		C2BBDB8D29FA7CC600BC4E0E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2FF018D29FAB708002E7A33 /* Token.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -376,6 +377,7 @@
 		};
 		C2BBDB8E29FA7CC600BC4E0E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2FF018D29FAB708002E7A33 /* Token.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

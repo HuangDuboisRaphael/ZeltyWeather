@@ -8,27 +8,41 @@
 import Foundation
 import Combine
 
-class HomeViewModel {
-  
+final class HomeViewModel {
+
+    // MARK: - Input / Output
+    
+    /// Input events trigger by users.
     enum Input {
         case viewDidLoad
         case searchCityWeatherButtonDidTap
         case forecastWeatherRowDidTap
     }
   
+    /// Output events following input events.
     enum Output {
         case fetchWeatherDidSucceed(weather: WeatherResponse)
         case fetchWeatherDidFail(error: ApiError)
     }
+    
+    // MARK: - Properties and initialization
   
+    /// Abstraction of type, use of protocol for mocking purposes.
     private let weatherServiceType: WeatherServiceType
     private let output: PassthroughSubject<Output, Never> = .init()
     private var cancellables = Set<AnyCancellable>()
+    
+    /// Weather Api data mapped to Weather object and used as data source for the main table view.
+    var weather: [Weather] = []
+    /// The weather chosen by user from the main table view. It will be passed down to DetailViewModel.
+    var selectedWeather: Weather?
   
     init(weatherServiceType: WeatherServiceType = WeatherService()) {
         self.weatherServiceType = weatherServiceType
     }
   
+    // MARK: - Methods
+    
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input.sink { [weak self] event in
             switch event {
