@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Convert weather description from API to french (not supported directly by the API).
 enum MainWeatherDescription: String {
     case clear = "Clair"
     case clouds = "Nuageux"

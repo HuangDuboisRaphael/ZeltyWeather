@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Add space every thousands for number of population.
 extension Formatter {
     static let withSeparator: NumberFormatter = {
         let formatter = NumberFormatter()

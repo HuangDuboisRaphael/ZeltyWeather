@@ -37,7 +37,7 @@ final class CoreDataService: CoreDataServiceType {
     
     // Add a weather entity mapped with weather object in database.
     func addWeatherEntity(weather: Weather) {
-        /// Creating the entity.
+        /// Create the entity.
         let weatherEntity = WeatherEntity(context: viewContext)
         weatherEntity.cloud = weather.cloud
         weatherEntity.date = weather.date
@@ -55,9 +55,10 @@ final class CoreDataService: CoreDataServiceType {
         weatherEntity.temperature = weather.temperature
         weatherEntity.wind = weather.wind
         
-        ///Saving the entity in database.
+        /// Save the entity in database.
         do {
             try viewContext.save()
+            print("Saved")
         } catch {
             fatalError("Failed to save context: \(error)")
         }
@@ -67,12 +68,13 @@ final class CoreDataService: CoreDataServiceType {
     func retrieveWeatherEntities() -> [WeatherEntity] {
         var weatherEntities: [WeatherEntity] = []
         
-        /// Creating request.
-        let fetchRequest = NSFetchRequest<WeatherEntity>(entityName: "ZeltyWeather")
+        /// Create request.
+        let fetchRequest = NSFetchRequest<WeatherEntity>(entityName: "WeatherEntity")
         
-        /// Fetching request and obtained entities from database.
+        /// Fetch request and obtained entities from database.
         do {
             weatherEntities = try viewContext.fetch(fetchRequest)
+            print(weatherEntities.count)
         } catch {
             print("Error fetching entities: \(error)")
         }
@@ -81,8 +83,8 @@ final class CoreDataService: CoreDataServiceType {
     
     // Delete all the weather entites.
     func deleteWeatherEntities() {
-        /// Creating request.
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ZeltyWeather")
+        /// Create request.
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "WeatherEntity")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         /// Execute request to delete all the entites from database.
@@ -92,6 +94,4 @@ final class CoreDataService: CoreDataServiceType {
             print("Error deleting entities: \(error)")
         }
     }
-
 }
-
