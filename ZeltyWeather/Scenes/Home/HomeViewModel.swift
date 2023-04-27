@@ -33,7 +33,7 @@ class HomeViewModel {
         input.sink { [weak self] event in
             switch event {
             case .viewDidLoad:
-                self?.handleGetWeather()
+                self?.handleGetWeather(city: "Paris")
             case .searchCityWeatherButtonDidTap:
                 print("Bonjour")
             case .forecastWeatherRowDidTap:
@@ -43,8 +43,8 @@ class HomeViewModel {
         return output.eraseToAnyPublisher()
     }
   
-    private func handleGetWeather() {
-        weatherServiceType.getWeather().sink { [weak self] completion in
+    private func handleGetWeather(city: String) {
+        weatherServiceType.getWeather(city: city).sink { [weak self] completion in
             if case .failure(let error) = completion {
                 if let error = error as? ApiError {
                     self?.output.send(.fetchWeatherDidFail(error: error))
