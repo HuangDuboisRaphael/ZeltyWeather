@@ -33,7 +33,7 @@ final class HomeViewModel {
     private var cancellables = Set<AnyCancellable>()
     
     /// Weather Api data mapped to Weather object and used as data source for the main table view.
-    var weather: [Weather] = []
+    var weathers: [Weather] = []
     /// The weather chosen by user from the main table view. It will be passed down to DetailViewModel.
     var selectedWeather: Weather?
   
@@ -66,7 +66,8 @@ final class HomeViewModel {
             }
         } receiveValue: { [weak self] weather in
             self?.output.send(.fetchWeatherDidSucceed(weather: weather))
-            weather.mapToWeathersObject()
+            self?.weathers = weather.mapToWeathersObject()
+            print(self?.weathers)
         }.store(in: &cancellables)
     }
 }

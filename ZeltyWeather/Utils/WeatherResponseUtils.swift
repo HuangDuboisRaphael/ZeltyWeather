@@ -21,6 +21,7 @@ extension WeatherResponse {
         /// Use of dispatch group to wait for loop to finish before going to next fragment of code.
         let group = DispatchGroup()
         
+        /// Populate weathers array with WeatherResponse data.
         for forecast in self.forecasts {
             group.enter()
             weather.date = String(forecast.date.convertDateToReadableTime(for: self.city.name))
@@ -29,7 +30,7 @@ extension WeatherResponse {
             weather.feelsLike = String(Int(forecast.temperature.feelsLike.rounded())) + "C"
             weather.pressure = String(forecast.temperature.pressure) + " hPa"
             weather.humidity = String(forecast.temperature.humidity) + "%"
-            weather.description = forecast.weather[0].main
+            weather.description = forecast.weather[0].main.translateWeatherDescription()
             weather.detailedDecription = forecast.weather[0].description.capitalized
             weather.image = forecast.weather[0].icon
             weather.cloud = String(forecast.clouds.all) + "%"
@@ -67,6 +68,7 @@ extension WeatherResponse {
     }
 
     private func getTodayInString() -> String {
+        /// Get today's date to compare with the formatted first weather index hour.
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
