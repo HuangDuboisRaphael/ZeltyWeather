@@ -9,25 +9,35 @@
 /* Begin PBXBuildFile section */
 		C2BBDB7C29FA7CC500BC4E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB7B29FA7CC500BC4E0E /* AppDelegate.swift */; };
 		C2BBDB7E29FA7CC500BC4E0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB7D29FA7CC500BC4E0E /* SceneDelegate.swift */; };
-		C2BBDB8029FA7CC500BC4E0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB7F29FA7CC500BC4E0E /* ViewController.swift */; };
-		C2BBDB8329FA7CC500BC4E0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2BBDB8129FA7CC500BC4E0E /* Main.storyboard */; };
+		C2BBDB8029FA7CC500BC4E0E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB7F29FA7CC500BC4E0E /* HomeViewController.swift */; };
 		C2BBDB8629FA7CC500BC4E0E /* ZeltyWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB8429FA7CC500BC4E0E /* ZeltyWeather.xcdatamodeld */; };
 		C2BBDB8829FA7CC600BC4E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BBDB8729FA7CC600BC4E0E /* Assets.xcassets */; };
 		C2BBDB8B29FA7CC600BC4E0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2BBDB8929FA7CC600BC4E0E /* LaunchScreen.storyboard */; };
 		C2BBDB9B29FA7E7300BC4E0E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB9A29FA7E7300BC4E0E /* DetailViewController.swift */; };
+		C2BBDB9D29FA7ED100BC4E0E /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB9C29FA7ED100BC4E0E /* HomeCoordinator.swift */; };
+		C2BBDB9F29FA7EDE00BC4E0E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB9E29FA7EDE00BC4E0E /* HomeViewModel.swift */; };
+		C2BBDBA529FA7F5400BC4E0E /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDBA429FA7F5400BC4E0E /* DetailViewModel.swift */; };
+		C2BBDBA729FA7F6600BC4E0E /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDBA629FA7F6600BC4E0E /* DetailCoordinator.swift */; };
+		C2BBDBAA29FA7FDD00BC4E0E /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDBA929FA7FDD00BC4E0E /* BaseCoordinator.swift */; };
+		C2BBDBAC29FA7FE500BC4E0E /* AppCoordintor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDBAB29FA7FE500BC4E0E /* AppCoordintor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C2BBDB7829FA7CC500BC4E0E /* ZeltyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZeltyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BBDB7B29FA7CC500BC4E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2BBDB7D29FA7CC500BC4E0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C2BBDB7F29FA7CC500BC4E0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C2BBDB8229FA7CC500BC4E0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C2BBDB7F29FA7CC500BC4E0E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C2BBDB8529FA7CC500BC4E0E /* ZeltyWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZeltyWeather.xcdatamodel; sourceTree = "<group>"; };
 		C2BBDB8729FA7CC600BC4E0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2BBDB8A29FA7CC600BC4E0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2BBDB8C29FA7CC600BC4E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2BBDB9A29FA7E7300BC4E0E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C2BBDB9C29FA7ED100BC4E0E /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		C2BBDB9E29FA7EDE00BC4E0E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C2BBDBA429FA7F5400BC4E0E /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		C2BBDBA629FA7F6600BC4E0E /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		C2BBDBA929FA7FDD00BC4E0E /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		C2BBDBAB29FA7FE500BC4E0E /* AppCoordintor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordintor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,14 +73,11 @@
 				C2BBDB9329FA7DF800BC4E0E /* Coordinators */,
 				C2BBDB9229FA7DF100BC4E0E /* Core */,
 				C2BBDB9529FA7E0900BC4E0E /* Models */,
+				C2BBDBA829FA7F7900BC4E0E /* Ressources */,
 				C2BBDB9729FA7E2400BC4E0E /* Scenes */,
+				C2BBDBA029FA7EE600BC4E0E /* Services */,
 				C2BBDB9629FA7E1D00BC4E0E /* Utils */,
-				C2BBDB9429FA7E0300BC4E0E /* ViewModels */,
-				C2BBDB8129FA7CC500BC4E0E /* Main.storyboard */,
-				C2BBDB8729FA7CC600BC4E0E /* Assets.xcassets */,
-				C2BBDB8929FA7CC600BC4E0E /* LaunchScreen.storyboard */,
 				C2BBDB8C29FA7CC600BC4E0E /* Info.plist */,
-				C2BBDB8429FA7CC500BC4E0E /* ZeltyWeather.xcdatamodeld */,
 			);
 			path = ZeltyWeather;
 			sourceTree = "<group>";
@@ -87,15 +94,10 @@
 		C2BBDB9329FA7DF800BC4E0E /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				C2BBDBAB29FA7FE500BC4E0E /* AppCoordintor.swift */,
+				C2BBDBA929FA7FDD00BC4E0E /* BaseCoordinator.swift */,
 			);
 			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		C2BBDB9429FA7E0300BC4E0E /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		C2BBDB9529FA7E0900BC4E0E /* Models */ = {
@@ -124,7 +126,9 @@
 		C2BBDB9829FA7E4B00BC4E0E /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				C2BBDBA629FA7F6600BC4E0E /* DetailCoordinator.swift */,
 				C2BBDB9A29FA7E7300BC4E0E /* DetailViewController.swift */,
+				C2BBDBA429FA7F5400BC4E0E /* DetailViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -132,9 +136,44 @@
 		C2BBDB9929FA7E5200BC4E0E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C2BBDB7F29FA7CC500BC4E0E /* ViewController.swift */,
+				C2BBDB9C29FA7ED100BC4E0E /* HomeCoordinator.swift */,
+				C2BBDB7F29FA7CC500BC4E0E /* HomeViewController.swift */,
+				C2BBDB9E29FA7EDE00BC4E0E /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		C2BBDBA029FA7EE600BC4E0E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C2BBDBA129FA7EF400BC4E0E /* CoreData */,
+				C2BBDBA229FA7EFB00BC4E0E /* URLSession */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C2BBDBA129FA7EF400BC4E0E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C2BBDB8429FA7CC500BC4E0E /* ZeltyWeather.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C2BBDBA229FA7EFB00BC4E0E /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = URLSession;
+			sourceTree = "<group>";
+		};
+		C2BBDBA829FA7F7900BC4E0E /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				C2BBDB8729FA7CC600BC4E0E /* Assets.xcassets */,
+				C2BBDB8929FA7CC600BC4E0E /* LaunchScreen.storyboard */,
+			);
+			path = Ressources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +236,6 @@
 			files = (
 				C2BBDB8B29FA7CC600BC4E0E /* LaunchScreen.storyboard in Resources */,
 				C2BBDB8829FA7CC600BC4E0E /* Assets.xcassets in Resources */,
-				C2BBDB8329FA7CC500BC4E0E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,25 +246,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2BBDB8029FA7CC500BC4E0E /* ViewController.swift in Sources */,
+				C2BBDB8029FA7CC500BC4E0E /* HomeViewController.swift in Sources */,
 				C2BBDB8629FA7CC500BC4E0E /* ZeltyWeather.xcdatamodeld in Sources */,
+				C2BBDB9F29FA7EDE00BC4E0E /* HomeViewModel.swift in Sources */,
+				C2BBDBA729FA7F6600BC4E0E /* DetailCoordinator.swift in Sources */,
 				C2BBDB9B29FA7E7300BC4E0E /* DetailViewController.swift in Sources */,
+				C2BBDBAA29FA7FDD00BC4E0E /* BaseCoordinator.swift in Sources */,
 				C2BBDB7C29FA7CC500BC4E0E /* AppDelegate.swift in Sources */,
 				C2BBDB7E29FA7CC500BC4E0E /* SceneDelegate.swift in Sources */,
+				C2BBDB9D29FA7ED100BC4E0E /* HomeCoordinator.swift in Sources */,
+				C2BBDBA529FA7F5400BC4E0E /* DetailViewModel.swift in Sources */,
+				C2BBDBAC29FA7FE500BC4E0E /* AppCoordintor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C2BBDB8129FA7CC500BC4E0E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C2BBDB8229FA7CC500BC4E0E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C2BBDB8929FA7CC600BC4E0E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -364,7 +400,6 @@
 				INFOPLIST_FILE = ZeltyWeather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -392,7 +427,6 @@
 				INFOPLIST_FILE = ZeltyWeather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
