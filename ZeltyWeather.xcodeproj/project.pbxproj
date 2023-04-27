@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C29FF43029FA896C0020C1D2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C29FF42F29FA896C0020C1D2 /* .swiftlint.yml */; };
 		C2BBDB7C29FA7CC500BC4E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB7B29FA7CC500BC4E0E /* AppDelegate.swift */; };
 		C2BBDB7E29FA7CC500BC4E0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB7D29FA7CC500BC4E0E /* SceneDelegate.swift */; };
 		C2BBDB8029FA7CC500BC4E0E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB7F29FA7CC500BC4E0E /* HomeViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C29FF42F29FA896C0020C1D2 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C2BBDB7829FA7CC500BC4E0E /* ZeltyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZeltyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BBDB7B29FA7CC500BC4E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2BBDB7D29FA7CC500BC4E0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		C2BBDB7A29FA7CC500BC4E0E /* ZeltyWeather */ = {
 			isa = PBXGroup;
 			children = (
+				C29FF42F29FA896C0020C1D2 /* .swiftlint.yml */,
 				C2BBDB9329FA7DF800BC4E0E /* Coordinators */,
 				C2BBDB9229FA7DF100BC4E0E /* Core */,
 				C2BBDB9529FA7E0900BC4E0E /* Models */,
@@ -186,6 +189,7 @@
 				C2BBDB7429FA7CC500BC4E0E /* Sources */,
 				C2BBDB7529FA7CC500BC4E0E /* Frameworks */,
 				C2BBDB7629FA7CC500BC4E0E /* Resources */,
+				C29FF42B29FA88270020C1D2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -234,12 +238,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C29FF43029FA896C0020C1D2 /* .swiftlint.yml in Resources */,
 				C2BBDB8B29FA7CC600BC4E0E /* LaunchScreen.storyboard in Resources */,
 				C2BBDB8829FA7CC600BC4E0E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C29FF42B29FA88270020C1D2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C2BBDB7429FA7CC500BC4E0E /* Sources */ = {

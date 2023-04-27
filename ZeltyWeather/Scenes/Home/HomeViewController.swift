@@ -18,7 +18,4 @@ class HomeViewController: UIViewController {
         view.addSubview(button)
         // Do any additional setup after loading the view.
     }
-
-
 }
-
