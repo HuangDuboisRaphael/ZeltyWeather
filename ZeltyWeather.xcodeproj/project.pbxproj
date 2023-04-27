@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C23BEDB529FABDAF00506F5D /* WeatherResponseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BEDB429FABDAF00506F5D /* WeatherResponseUtils.swift */; };
+		C23BEDB729FAC71400506F5D /* FormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BEDB629FAC71400506F5D /* FormatterUtils.swift */; };
+		C23BEDB929FAD10900506F5D /* IntUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BEDB829FAD10900506F5D /* IntUtils.swift */; };
 		C29FF43029FA896C0020C1D2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C29FF42F29FA896C0020C1D2 /* .swiftlint.yml */; };
 		C29FF43229FA8A220020C1D2 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29FF43129FA8A220020C1D2 /* WeatherService.swift */; };
 		C29FF43529FA8A630020C1D2 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29FF43429FA8A630020C1D2 /* WeatherResponse.swift */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C23BEDB429FABDAF00506F5D /* WeatherResponseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponseUtils.swift; sourceTree = "<group>"; };
+		C23BEDB629FAC71400506F5D /* FormatterUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtils.swift; sourceTree = "<group>"; };
+		C23BEDB829FAD10900506F5D /* IntUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntUtils.swift; sourceTree = "<group>"; };
 		C29FF42F29FA896C0020C1D2 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C29FF43129FA8A220020C1D2 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		C29FF43429FA8A630020C1D2 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
@@ -122,6 +128,9 @@
 		C2BBDB9629FA7E1D00BC4E0E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C23BEDB629FAC71400506F5D /* FormatterUtils.swift */,
+				C23BEDB829FAD10900506F5D /* IntUtils.swift */,
+				C23BEDB429FABDAF00506F5D /* WeatherResponseUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -285,9 +294,12 @@
 			files = (
 				C2BBDB8029FA7CC500BC4E0E /* HomeViewController.swift in Sources */,
 				C2BBDB8629FA7CC500BC4E0E /* ZeltyWeather.xcdatamodeld in Sources */,
+				C23BEDB929FAD10900506F5D /* IntUtils.swift in Sources */,
 				C2BBDB9F29FA7EDE00BC4E0E /* HomeViewModel.swift in Sources */,
 				C2BBDBA729FA7F6600BC4E0E /* DetailCoordinator.swift in Sources */,
+				C23BEDB729FAC71400506F5D /* FormatterUtils.swift in Sources */,
 				C29FF43229FA8A220020C1D2 /* WeatherService.swift in Sources */,
+				C23BEDB529FABDAF00506F5D /* WeatherResponseUtils.swift in Sources */,
 				C29FF43529FA8A630020C1D2 /* WeatherResponse.swift in Sources */,
 				C29FF43729FAA3C00020C1D2 /* Weather.swift in Sources */,
 				C2BBDB9B29FA7E7300BC4E0E /* DetailViewController.swift in Sources */,

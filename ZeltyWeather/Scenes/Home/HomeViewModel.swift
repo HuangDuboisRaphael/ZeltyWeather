@@ -66,6 +66,7 @@ final class HomeViewModel {
             }
         } receiveValue: { [weak self] weather in
             self?.output.send(.fetchWeatherDidSucceed(weather: weather))
+            weather.mapToWeathersObject()
         }.store(in: &cancellables)
     }
 }

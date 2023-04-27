@@ -28,7 +28,7 @@ class WeatherService: WeatherServiceType {
     func getWeather(city: String) -> AnyPublisher<WeatherResponse, Error> {
     
         let token = Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=" + "\(city)" + "&cnt=5&units=metric&lang=fr&appid=" + "\(token)")
+        let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=" + "\(city)" + "&cnt=40&units=metric&lang=fr&appid=" + "\(token)")
         
         guard let url = url else {
             return Fail(error: ApiError.badUrl).eraseToAnyPublisher()

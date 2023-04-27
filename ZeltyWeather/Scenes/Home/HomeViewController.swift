@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
                 .sink { [weak self] event in
                     switch event {
                     case .fetchWeatherDidSucceed (let weather):
-                        print(weather)
+                        print("")
                     case .fetchWeatherDidFail(let error):
                         print(error)
                     }

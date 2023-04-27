@@ -18,16 +18,20 @@ struct WeatherResponse: Decodable {
 }
 
 struct ForecastResponse: Decodable {
+    let date: Int
     let temperature: Temperature
     let weather: [WeatherDescription]
     let clouds: Cloud
     let wind: Wind
+    let dateText: String
 
     enum CodingKeys: String, CodingKey {
+        case date = "dt"
         case temperature = "main"
         case weather
         case clouds
         case wind
+        case dateText = "dt_txt"
     }
 }
 
@@ -62,7 +66,6 @@ struct Wind: Decodable {
 struct CityResponse: Decodable {
     let name: String
     let population: Int
-    let timezone: Int
     let sunrise: Int
     let sunset: Int
 }
