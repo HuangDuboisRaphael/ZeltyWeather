@@ -14,6 +14,7 @@
 		C2BBDB8629FA7CC500BC4E0E /* ZeltyWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB8429FA7CC500BC4E0E /* ZeltyWeather.xcdatamodeld */; };
 		C2BBDB8829FA7CC600BC4E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BBDB8729FA7CC600BC4E0E /* Assets.xcassets */; };
 		C2BBDB8B29FA7CC600BC4E0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2BBDB8929FA7CC600BC4E0E /* LaunchScreen.storyboard */; };
+		C2BBDB9B29FA7E7300BC4E0E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDB9A29FA7E7300BC4E0E /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C2BBDB8729FA7CC600BC4E0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2BBDB8A29FA7CC600BC4E0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2BBDB8C29FA7CC600BC4E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2BBDB9A29FA7E7300BC4E0E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +60,12 @@
 		C2BBDB7A29FA7CC500BC4E0E /* ZeltyWeather */ = {
 			isa = PBXGroup;
 			children = (
-				C2BBDB7B29FA7CC500BC4E0E /* AppDelegate.swift */,
-				C2BBDB7D29FA7CC500BC4E0E /* SceneDelegate.swift */,
-				C2BBDB7F29FA7CC500BC4E0E /* ViewController.swift */,
+				C2BBDB9329FA7DF800BC4E0E /* Coordinators */,
+				C2BBDB9229FA7DF100BC4E0E /* Core */,
+				C2BBDB9529FA7E0900BC4E0E /* Models */,
+				C2BBDB9729FA7E2400BC4E0E /* Scenes */,
+				C2BBDB9629FA7E1D00BC4E0E /* Utils */,
+				C2BBDB9429FA7E0300BC4E0E /* ViewModels */,
 				C2BBDB8129FA7CC500BC4E0E /* Main.storyboard */,
 				C2BBDB8729FA7CC600BC4E0E /* Assets.xcassets */,
 				C2BBDB8929FA7CC600BC4E0E /* LaunchScreen.storyboard */,
@@ -68,6 +73,68 @@
 				C2BBDB8429FA7CC500BC4E0E /* ZeltyWeather.xcdatamodeld */,
 			);
 			path = ZeltyWeather;
+			sourceTree = "<group>";
+		};
+		C2BBDB9229FA7DF100BC4E0E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C2BBDB7B29FA7CC500BC4E0E /* AppDelegate.swift */,
+				C2BBDB7D29FA7CC500BC4E0E /* SceneDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C2BBDB9329FA7DF800BC4E0E /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		C2BBDB9429FA7E0300BC4E0E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C2BBDB9529FA7E0900BC4E0E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C2BBDB9629FA7E1D00BC4E0E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C2BBDB9729FA7E2400BC4E0E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C2BBDB9929FA7E5200BC4E0E /* Home */,
+				C2BBDB9829FA7E4B00BC4E0E /* Detail */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C2BBDB9829FA7E4B00BC4E0E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				C2BBDB9A29FA7E7300BC4E0E /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		C2BBDB9929FA7E5200BC4E0E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C2BBDB7F29FA7CC500BC4E0E /* ViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +210,7 @@
 			files = (
 				C2BBDB8029FA7CC500BC4E0E /* ViewController.swift in Sources */,
 				C2BBDB8629FA7CC500BC4E0E /* ZeltyWeather.xcdatamodeld in Sources */,
+				C2BBDB9B29FA7E7300BC4E0E /* DetailViewController.swift in Sources */,
 				C2BBDB7C29FA7CC500BC4E0E /* AppDelegate.swift in Sources */,
 				C2BBDB7E29FA7CC500BC4E0E /* SceneDelegate.swift in Sources */,
 			);
