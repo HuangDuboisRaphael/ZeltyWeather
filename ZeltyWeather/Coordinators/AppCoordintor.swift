@@ -7,11 +7,14 @@
 
 import UIKit
 
-// Coordinator to use in AppDelegate which would set the UIWindow with HomeCoordinator navigation controller and set HomeViewController as the entry view.
+// Coordinator to use in AppDelegate which would set the UIWindow with AppCoordinator navigation controller and delegate the flow to HomeCoordinator.
 class AppCoordinator: BaseCoordinator {
     
     override func start() {
-        let viewController = HomeViewController()
-        self.navigationController.pushViewController(viewController, animated: false)
+        removeChildCoordinators()
+        
+        let coordinator = HomeCoordinator(viewModel: HomeViewModel())
+        coordinator.navigationController = self.navigationController
+        coordinator.start()
     }
 }
