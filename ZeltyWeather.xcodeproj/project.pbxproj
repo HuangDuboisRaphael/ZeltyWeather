@@ -11,6 +11,7 @@
 		C23BEDB729FAC71400506F5D /* FormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BEDB629FAC71400506F5D /* FormatterUtils.swift */; };
 		C23BEDB929FAD10900506F5D /* IntUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BEDB829FAD10900506F5D /* IntUtils.swift */; };
 		C23BEDBB29FB096300506F5D /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BEDBA29FB096300506F5D /* StringUtils.swift */; };
+		C23BEDBD29FB139300506F5D /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BEDBC29FB139300506F5D /* CoreDataService.swift */; };
 		C29FF43029FA896C0020C1D2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C29FF42F29FA896C0020C1D2 /* .swiftlint.yml */; };
 		C29FF43229FA8A220020C1D2 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29FF43129FA8A220020C1D2 /* WeatherService.swift */; };
 		C29FF43529FA8A630020C1D2 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29FF43429FA8A630020C1D2 /* WeatherResponse.swift */; };
@@ -35,6 +36,7 @@
 		C23BEDB629FAC71400506F5D /* FormatterUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtils.swift; sourceTree = "<group>"; };
 		C23BEDB829FAD10900506F5D /* IntUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntUtils.swift; sourceTree = "<group>"; };
 		C23BEDBA29FB096300506F5D /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		C23BEDBC29FB139300506F5D /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		C29FF42F29FA896C0020C1D2 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C29FF43129FA8A220020C1D2 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		C29FF43429FA8A630020C1D2 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				C2BBDB8429FA7CC500BC4E0E /* ZeltyWeather.xcdatamodeld */,
+				C23BEDBC29FB139300506F5D /* CoreDataService.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				C29FF43729FAA3C00020C1D2 /* Weather.swift in Sources */,
 				C2BBDB9B29FA7E7300BC4E0E /* DetailViewController.swift in Sources */,
 				C2BBDBAA29FA7FDD00BC4E0E /* BaseCoordinator.swift in Sources */,
+				C23BEDBD29FB139300506F5D /* CoreDataService.swift in Sources */,
 				C2BBDB7C29FA7CC500BC4E0E /* AppDelegate.swift in Sources */,
 				C2BBDB7E29FA7CC500BC4E0E /* SceneDelegate.swift in Sources */,
 				C2BBDB9D29FA7ED100BC4E0E /* HomeCoordinator.swift in Sources */,

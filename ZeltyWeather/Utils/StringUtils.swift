@@ -33,9 +33,7 @@ extension String {
             return MainWeatherDescription.dust.rawValue
         } else if self == "Fog" {
             return MainWeatherDescription.fog.rawValue
-        } else if self == "Haze" {
-            return MainWeatherDescription.haze.rawValue
-        } else if self == "Mist" {
+        } else if self == "Haze" || self == "Mist" {
             return MainWeatherDescription.haze.rawValue
         } else if self == "Rain" {
             return MainWeatherDescription.rain.rawValue

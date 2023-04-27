@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="WeatherEntity" representedClassName=".WeatherEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="cloud" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="detailedWeatherDescription" optional="YES" attributeType="String"/>
+        <attribute name="feelsLike" optional="YES" attributeType="String"/>
+        <attribute name="hour" optional="YES" attributeType="String"/>
+        <attribute name="humidity" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="population" optional="YES" attributeType="String"/>
+        <attribute name="pressure" optional="YES" attributeType="String"/>
+        <attribute name="sunrise" optional="YES" attributeType="String"/>
+        <attribute name="sunset" optional="YES" attributeType="String"/>
+        <attribute name="temperature" optional="YES" attributeType="String"/>
+        <attribute name="weatherDescription" optional="YES" attributeType="String"/>
+        <attribute name="wind" optional="YES" attributeType="String"/>
+    </entity>
 </model>

@@ -22,7 +22,7 @@ protocol WeatherServiceType {
     func getWeather(city: String) -> AnyPublisher<WeatherResponse, Error>
 }
 
-class WeatherService: WeatherServiceType {
+final class WeatherService: WeatherServiceType {
   
     /// Api call to openweathermap using reactive programming to react for any stream of data received, either an error or the correct formatted data.
     func getWeather(city: String) -> AnyPublisher<WeatherResponse, Error> {
