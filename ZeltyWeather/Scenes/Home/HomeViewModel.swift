@@ -125,10 +125,18 @@ final class HomeViewModel {
         
         /// Check for entities presence in database.
         if coreDataServiceType.retrieveWeatherEntities().count > 0 {
-            /// Retrieve all stored weather entities from database and map it into Weather object array.
+            /// Retrieve all stored weather entities from database and map it into WeatherImage object array.
+            let group = DispatchGroup()
             for entity in coreDataServiceType.retrieveWeatherEntities() {
+                group.enter()
                 weather = entity.mapToWeatherObject()
-                self.weathers.append(weather)
+                weather.mapToWeatherWithImageObject { weatherImage in
+                    self.weathersWithImage.append(weatherImage)
+                    group.leave()
+                }
+            }
+            group.notify(queue: .main) {
+                self.output.send(.fetchWeatherDidSucceed)
             }
         } else {
             /// If no entity and no connection internet, send output did fail.

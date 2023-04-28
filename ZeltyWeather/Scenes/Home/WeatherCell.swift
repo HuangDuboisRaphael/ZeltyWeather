@@ -7,8 +7,10 @@
 
 import UIKit
 
+// Custom cell to be used in main table view.
 final class WeatherCell: UITableViewCell {
     
+    /// Property observer initialized when register custom table view cell.
     var weather: WeatherWithImage? {
         didSet {
             guard let weather = weather else { return }

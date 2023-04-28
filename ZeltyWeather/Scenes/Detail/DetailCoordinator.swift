@@ -23,6 +23,7 @@ final class DetailCoordinator: BaseCoordinator {
         parentCoordinator?.navigationController.pushViewController(viewController, animated: false)
     }
     
+    /// Remove DetailCoordinator from the navigation stack and pop to HomeViewController.
     private func removeDetailCoordinator() {
         didFinish(coordinator: self)
         parentCoordinator?.navigationController.popViewController(animated: false)

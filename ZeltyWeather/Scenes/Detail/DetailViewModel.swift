@@ -8,7 +8,9 @@
 import Foundation
 
 final class DetailViewModel {
+    /// SelectedWeatherImage from table view and communicated through coordinators.
     var selectedWeatherWithImage: WeatherWithImage
+    /// Navigation method initialized in DetailCoordinator.
     var popToHomeViewController: () -> Void = {}
     
     init(selectedWeatherWithImage: WeatherWithImage) {

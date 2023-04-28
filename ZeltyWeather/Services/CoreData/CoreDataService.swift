@@ -50,7 +50,7 @@ final class CoreDataService: CoreDataServiceType {
         weatherEntity.name = weather.city.name
         weatherEntity.population = weather.city.population
         weatherEntity.pressure = weather.pressure
-        weatherEntity.sunrise = weather.city.sunset
+        weatherEntity.sunrise = weather.city.sunrise
         weatherEntity.sunset = weather.city.sunset
         weatherEntity.temperature = weather.temperature
         weatherEntity.wind = weather.wind

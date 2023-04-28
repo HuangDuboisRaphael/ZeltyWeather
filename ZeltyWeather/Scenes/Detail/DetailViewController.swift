@@ -7,22 +7,28 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
+    
+    // MARK: - Properties
     
     var viewModel: DetailViewModel?
     
-    let backButton = UIButton(type: .custom)
-    let mainVerticalStackView = UIStackView()
+    private let backButton = UIButton(type: .custom)
+    private let mainVerticalStackView = UIStackView()
 
+    // MARK: - ViewController life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
     }
+    
     @objc func backButtonPressed() {
         viewModel?.popToHomeViewController()
     }
 }
 
+// UI related.
 extension DetailViewController {
     
     func setUpUI() {
