@@ -10,6 +10,7 @@ import Combine
 
 // Enum of different errors that our api call can throw. This allows to handle each error case differently.
 enum ApiError: Error {
+    case noInternet
     case badUrl
     case badRequest
     case badServerResponse

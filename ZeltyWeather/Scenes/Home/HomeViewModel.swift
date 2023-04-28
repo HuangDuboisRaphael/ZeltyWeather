@@ -50,7 +50,8 @@ final class HomeViewModel {
             if let weakSelf = self {
                 switch event {
                 case .viewDidLoad:
-                    self?.handleGetWeather(city: "Paris")
+                    print(NetworkUtils.isConnectedToInternet())
+                    self?.populateWeathers(city: "Paris")
                 case .searchCityWeatherButtonDidTap:
                     print("Bonjour")
                 case .forecastWeatherRowDidTap:
@@ -59,6 +60,15 @@ final class HomeViewModel {
             }
         }.store(in: &cancellables)
         return output.eraseToAnyPublisher()
+    }
+    
+    // Check internet connection and populate accordingly weather array.
+    private func populateWeathers(city: String) {
+        if NetworkUtils.isConnectedToInternet() {
+            self.handleGetWeather(city: city)
+        } else {
+            self.populateWeathersWithDatabase()
+        }
     }
   
     private func handleGetWeather(city: String) {
@@ -89,10 +99,17 @@ final class HomeViewModel {
     
     private func populateWeathersWithDatabase() {
         var weather: Weather
-        /// Retrieve all stored weather entities from database and map it into Weather object array.
-        for entity in coreDataServiceType.retrieveWeatherEntities() {
-            weather = entity.mapToWeatherObject()
-            self.weathers.append(weather)
+        
+        /// Check for entities presence in database.
+        if coreDataServiceType.retrieveWeatherEntities().count > 0 {
+            /// Retrieve all stored weather entities from database and map it into Weather object array.
+            for entity in coreDataServiceType.retrieveWeatherEntities() {
+                weather = entity.mapToWeatherObject()
+                self.weathers.append(weather)
+            }
+        } else {
+            /// If no entity and no connection internet, send output did fail.
+            self.output.send(.fetchWeatherDidFail(error: .noInternet))
         }
     }
 }

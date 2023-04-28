@@ -30,6 +30,8 @@
 		C2BBDBA729FA7F6600BC4E0E /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDBA629FA7F6600BC4E0E /* DetailCoordinator.swift */; };
 		C2BBDBAA29FA7FDD00BC4E0E /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDBA929FA7FDD00BC4E0E /* BaseCoordinator.swift */; };
 		C2BBDBAC29FA7FE500BC4E0E /* AppCoordintor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BBDBAB29FA7FE500BC4E0E /* AppCoordintor.swift */; };
+		C2E84C7829FBBFF400257BB9 /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E84C7729FBBFF400257BB9 /* NetworkUtils.swift */; };
+		C2E84C7A29FBD79900257BB9 /* UIImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E84C7929FBD79900257BB9 /* UIImageUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		C2BBDBA629FA7F6600BC4E0E /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		C2BBDBA929FA7FDD00BC4E0E /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		C2BBDBAB29FA7FE500BC4E0E /* AppCoordintor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordintor.swift; sourceTree = "<group>"; };
+		C2E84C7729FBBFF400257BB9 /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
+		C2E84C7929FBD79900257BB9 /* UIImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageUtils.swift; sourceTree = "<group>"; };
 		C2FF018D29FAB708002E7A33 /* Token.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Token.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,7 +140,9 @@
 			children = (
 				C23BEDB629FAC71400506F5D /* FormatterUtils.swift */,
 				C23BEDB829FAD10900506F5D /* IntUtils.swift */,
+				C2E84C7729FBBFF400257BB9 /* NetworkUtils.swift */,
 				C23BEDBA29FB096300506F5D /* StringUtils.swift */,
+				C2E84C7929FBD79900257BB9 /* UIImageUtils.swift */,
 				C2B394E229FB244E00C48BC4 /* WeatherEntityUtils.swift */,
 				C23BEDB429FABDAF00506F5D /* WeatherResponseUtils.swift */,
 			);
@@ -312,6 +318,7 @@
 				C23BEDB529FABDAF00506F5D /* WeatherResponseUtils.swift in Sources */,
 				C29FF43529FA8A630020C1D2 /* WeatherResponse.swift in Sources */,
 				C29FF43729FAA3C00020C1D2 /* Weather.swift in Sources */,
+				C2E84C7A29FBD79900257BB9 /* UIImageUtils.swift in Sources */,
 				C2BBDB9B29FA7E7300BC4E0E /* DetailViewController.swift in Sources */,
 				C2BBDBAA29FA7FDD00BC4E0E /* BaseCoordinator.swift in Sources */,
 				C2B394E329FB244E00C48BC4 /* WeatherEntityUtils.swift in Sources */,
@@ -320,6 +327,7 @@
 				C2BBDB7E29FA7CC500BC4E0E /* SceneDelegate.swift in Sources */,
 				C2BBDB9D29FA7ED100BC4E0E /* HomeCoordinator.swift in Sources */,
 				C2BBDBA529FA7F5400BC4E0E /* DetailViewModel.swift in Sources */,
+				C2E84C7829FBBFF400257BB9 /* NetworkUtils.swift in Sources */,
 				C2BBDBAC29FA7FE500BC4E0E /* AppCoordintor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
