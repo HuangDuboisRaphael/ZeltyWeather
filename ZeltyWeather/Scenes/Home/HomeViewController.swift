@@ -15,17 +15,12 @@ class HomeViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     
     var horizontalStackView = UIStackView()
-    var cityTextField = UITextField()
-    var searchCityButton = UIButton()
+    let cityTextField = UITextField()
+    let searchCityButton = UIButton()
+    var weatherTableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let button = UIButton(type: .system)
-        button.setTitle("My Button", for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
-        button.center = view.center
-        view.addSubview(button)
         setUpUI()
         bind()
         input.send(.viewDidLoad)
@@ -38,8 +33,9 @@ class HomeViewController: UIViewController {
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] event in
                     switch event {
-                    case .fetchWeatherDidSucceed (let weather):
-                        print("")
+                    case .fetchWeatherDidSucceed:
+                        print(self?.viewModel?.weathers.count)
+                        self?.weatherTableView.reloadData()
                     case .fetchWeatherDidFail(let error):
                         print(error)
                     }
@@ -52,6 +48,7 @@ extension HomeViewController {
     
     func setUpUI() {
         setHorizontalStackView()
+        setWeatherTableView()
     }
     
     private func setHorizontalStackView() {
@@ -87,5 +84,50 @@ extension HomeViewController {
     
         /// Add horizontalStackView to parent view.
         view.addSubview(horizontalStackView)
+    }
+    
+    private func setWeatherTableView() {
+        weatherTableView.dataSource = self
+        weatherTableView.delegate = self
+        weatherTableView.separatorStyle = .singleLine
+        weatherTableView.separatorColor = UIColor.gray
+        weatherTableView.backgroundColor = .clear
+        weatherTableView.isScrollEnabled = true
+        
+        view.addSubview(weatherTableView)
+        weatherTableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            weatherTableView.topAnchor.constraint(equalTo: cityTextField.bottomAnchor, constant: 10.0),
+            weatherTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            weatherTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15.0),
+            weatherTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15.0)
+        ])
+
+    }
+}
+
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.weathersWithImage.count ?? 0
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        weatherTableView.register(WeatherCell.self, forCellReuseIdentifier: "weatherCell")
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as? WeatherCell else {
+            fatalError("Unable to create weather cell")
+        }
+        cell.selectionStyle = .none
+        cell.weather = viewModel?.weathersWithImage[indexPath.row]        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 280
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
 }

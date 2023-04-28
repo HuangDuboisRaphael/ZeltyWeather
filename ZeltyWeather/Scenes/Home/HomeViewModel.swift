@@ -21,7 +21,7 @@ final class HomeViewModel {
   
     /// Output events following input events.
     enum Output {
-        case fetchWeatherDidSucceed(weather: WeatherResponse)
+        case fetchWeatherDidSucceed
         case fetchWeatherDidFail(error: ApiError)
     }
     
@@ -33,10 +33,12 @@ final class HomeViewModel {
     private let output: PassthroughSubject<Output, Never> = .init()
     private var cancellables = Set<AnyCancellable>()
     
-    /// Weather Api data mapped to Weather object and used as data source for the main table view.
+    /// Weather Api data mapped to WeatherResponse object and saved in database.
     var weathers: [Weather] = []
+    /// WeatherWithImage mapped with Weather object  and used as data source for the main table view. The difference is that weather has string url whereas weatherWithImage images are already downloaded.
+    var weathersWithImage: [WeatherWithImage] = []
     /// The weather chosen by user from the main table view. It will be passed down to DetailViewModel.
-    var selectedWeather: Weather?
+    var selectedWeather: WeatherWithImage?
   
     init(weatherServiceType: WeatherServiceType = WeatherService(), coreDataServiceType: CoreDataServiceType = CoreDataService()) {
         self.weatherServiceType = weatherServiceType
@@ -83,8 +85,6 @@ final class HomeViewModel {
         } receiveValue: { [weak self] weather in
             /// Receive weatherResponse.
             if let weakSelf = self {
-                /// Trigger output event.
-                weakSelf.output.send(.fetchWeatherDidSucceed(weather: weather))
                 /// Update stored property weathers in view model to communicate with detail view model.
                 weakSelf.weathers = weather.mapToWeathersObject()
                 
@@ -93,6 +93,20 @@ final class HomeViewModel {
                 for weather in weakSelf.weathers {
                     weakSelf.coreDataServiceType.addWeatherEntity(weather: weather)
                 }
+                
+                /// Create array of weathersWithImage.
+                let group = DispatchGroup()
+                for weather in weakSelf.weathers {
+                    group.enter()
+                    weather.mapToWeatherWithImageObject { weatherImage in
+                        weakSelf.weathersWithImage.append(weatherImage)
+                        group.leave()
+                    }
+                }
+                /// Once created, trigger output event.
+                group.notify(queue: .main) {
+                    weakSelf.output.send(.fetchWeatherDidSucceed)
+                }    
             }
         }.store(in: &cancellables)
     }

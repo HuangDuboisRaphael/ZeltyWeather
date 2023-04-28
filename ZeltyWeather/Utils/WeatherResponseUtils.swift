@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 extension WeatherResponse {
     
@@ -16,6 +17,11 @@ extension WeatherResponse {
         var weather: Weather = Weather(date: "", hour: "", temperature: "", feelsLike: "", pressure: "", humidity: "", description: "", detailedDecription: "", image: "", cloud: "", wind: "", city: City(name: "", population: "", sunrise: "", sunset: ""))
         /// Keep in memory the first weather of today if it's later than 12:00.
         var todayWeather: Weather = Weather(date: "", hour: "", temperature: "", feelsLike: "", pressure: "", humidity: "", description: "", detailedDecription: "", image: "", cloud: "", wind: "", city: City(name: "", population: "", sunrise: "", sunset: ""))
+        /// Determine time zone identifier to adjust date and hour accordingly.
+        var timeZoneIdentifier = ""
+        determineTimeZoneIdentifier(for: self.city.name) { timeZone in
+            timeZoneIdentifier = timeZone
+        }
         
         /// Use of dispatch group to wait for loop to finish before going to next fragment of code.
         let group = DispatchGroup()
@@ -36,8 +42,8 @@ extension WeatherResponse {
             weather.wind = String(forecast.wind.speed) + " m/s"
             weather.city.name = self.city.name
             weather.city.population = String(self.city.population.formattedWithSeparator) + " habitants"
-            weather.city.sunrise = String(self.city.sunrise.convertUnixToReadableTime(for: self.city.name))
-            weather.city.sunset = String(self.city.sunset.convertUnixToReadableTime(for: self.city.name))
+            weather.city.sunrise = String(self.city.sunrise.convertUnixToReadableTime(for: self.city.name, timeZoneIdentifier: timeZoneIdentifier))
+            weather.city.sunset = String(self.city.sunset.convertUnixToReadableTime(for: self.city.name, timeZoneIdentifier: timeZoneIdentifier))
             weathers.append(weather)
             group.leave()
         }
@@ -65,6 +71,31 @@ extension WeatherResponse {
         semaphore.wait()
         return weathers
     }
+    
+    private func getTimeZoneIdentifierForGivenCity(city: String) -> String {
+       /// Use sempahore to wait closure completion before returning value.
+       var timeZone = ""
+       let semaphore = DispatchSemaphore(value: 0)
+       determineTimeZoneIdentifier(for: city) { timeZoneIdentifier in
+           timeZone = timeZoneIdentifier
+           semaphore.signal()
+       }
+       semaphore.wait()
+       
+       return timeZone
+   }
+   
+    private func determineTimeZoneIdentifier(for city: String, completion: @escaping (String) -> Void) {
+       let geocoder = CLGeocoder()
+       /// Use  geocoder to get the geographic infomation of the given city
+       geocoder.geocodeAddressString(city) { placemarks, _ in
+           guard let placemark = placemarks?.first, let timeZone = placemark.timeZone?.identifier else {
+               completion("Europe/Paris")
+               return
+           }
+           completion(timeZone)
+       }
+   }
 
     private func getTodayInString() -> String {
         /// Get today's date to compare with the formatted first weather index hour.
