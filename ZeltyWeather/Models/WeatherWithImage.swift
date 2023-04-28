@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// WeatherWithImage structure used as datasource of the main table view, UIImage directly downloaded for better performances (to avoid doing it each time the table view reloads).
 struct WeatherWithImage {
     var date: String
     var hour: String

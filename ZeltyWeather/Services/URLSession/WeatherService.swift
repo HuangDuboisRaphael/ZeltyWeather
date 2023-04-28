@@ -27,19 +27,25 @@ final class WeatherService: WeatherServiceType {
   
     /// Api call to openweathermap using reactive programming to react for any stream of data received, either an error or the correct formatted data.
     func getWeather(city: String) -> AnyPublisher<WeatherResponse, Error> {
-    
+        /// Retrieve token saved in infolist.
         let token = Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=" + "\(city)" + "&cnt=40&units=metric&lang=fr&appid=" + "\(token)")
+        /// Url string with specific parameters.
+        let urlString = "https://api.openweathermap.org/data/2.5/forecast?q=" + "\(city)" + "&cnt=40&units=metric&lang=fr&appid=" + "\(token)"
+        /// Encode Url to allow space in it, in the case of cities written with several words.
+        let encodedUrlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let url = URL(string: encodedUrlString ?? "")
         
         guard let url = url else {
             return Fail(error: ApiError.badUrl).eraseToAnyPublisher()
         }
         
+        /// Instnace of URLSession withch returns a publisher.
         return URLSession.shared.dataTaskPublisher(for: url)
             .mapError({ _ in
                 return ApiError.badUrl
             })
             .tryMap() { element -> WeatherResponse in
+                /// Handle all the error cases and throw errors.
                 guard let httpResponse = element.response as? HTTPURLResponse, httpResponse.statusCode < 500 else {
                     throw ApiError.badServerResponse
                 }
@@ -49,6 +55,7 @@ final class WeatherService: WeatherServiceType {
                 guard let httpResponse = element.response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                     throw ApiError.invalidResponse
                 }
+                /// Do the parsing and return a publisher of type WeatherResponse.
                 do {
                     let decoder = JSONDecoder()
                     let weatherResponse = try decoder.decode(WeatherResponse.self, from: element.data)

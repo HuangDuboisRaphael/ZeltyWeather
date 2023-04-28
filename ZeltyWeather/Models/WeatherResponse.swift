@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Object received from API and use for parsing.
 struct WeatherResponse: Decodable {
     let forecasts: [ForecastResponse]
     let city: CityResponse

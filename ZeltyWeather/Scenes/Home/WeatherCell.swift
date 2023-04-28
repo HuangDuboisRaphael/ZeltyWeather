@@ -12,6 +12,7 @@ final class WeatherCell: UITableViewCell {
     var weather: WeatherWithImage? {
         didSet {
             guard let weather = weather else { return }
+            dateLabel.text = weather.date
             cityLabel.text = weather.city.name
             temperatureLabel.text = weather.temperature
             weatherImage.image = weather.image
@@ -19,11 +20,18 @@ final class WeatherCell: UITableViewCell {
         }
     }
     
+    var dateLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .gray
+        label.font = UIFont(name: "Arial-BoldMT", size: 15)
+        return label
+    }()
+    
     let verticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.spacing = 16
+        stackView.spacing = 0
         return stackView
     }()
     
@@ -83,6 +91,11 @@ final class WeatherCell: UITableViewCell {
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         verticalStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         verticalStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        addSubview(dateLabel)
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
+        dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
     }
     
     required init?(coder: NSCoder) {

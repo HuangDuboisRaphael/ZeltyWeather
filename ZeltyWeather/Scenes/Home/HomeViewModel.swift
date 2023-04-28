@@ -15,7 +15,7 @@ final class HomeViewModel {
     /// Input events trigger by users.
     enum Input {
         case viewDidLoad
-        case searchCityWeatherButtonDidTap
+        case searchCityWeatherButtonDidTap(city: String)
         case forecastWeatherRowDidTap
     }
   
@@ -52,10 +52,13 @@ final class HomeViewModel {
             if let weakSelf = self {
                 switch event {
                 case .viewDidLoad:
-                    print(NetworkUtils.isConnectedToInternet())
                     self?.populateWeathers(city: "Paris")
-                case .searchCityWeatherButtonDidTap:
-                    print("Bonjour")
+                case .searchCityWeatherButtonDidTap(let city):
+                    if NetworkUtils.isConnectedToInternet() {
+                        weakSelf.handleGetWeather(city: city)
+                    } else {
+                        self?.output.send(.fetchWeatherDidFail(error: ApiError.noInternet))
+                    }
                 case .forecastWeatherRowDidTap:
                     print("Bonjour")
                 }
@@ -85,6 +88,10 @@ final class HomeViewModel {
         } receiveValue: { [weak self] weather in
             /// Receive weatherResponse.
             if let weakSelf = self {
+                /// Remove all arrays element if user makes several calls.
+                weakSelf.weathers.removeAll()
+                weakSelf.weathersWithImage.removeAll()
+                
                 /// Update stored property weathers in view model to communicate with detail view model.
                 weakSelf.weathers = weather.mapToWeathersObject()
                 

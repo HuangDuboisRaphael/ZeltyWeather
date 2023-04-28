@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Weather structure used as mapping and saved in CoreData.
 struct Weather {
     var date: String
     var hour: String

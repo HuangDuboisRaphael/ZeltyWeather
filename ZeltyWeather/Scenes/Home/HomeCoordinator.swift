@@ -7,6 +7,7 @@
 
 import UIKit
 
+// HomeCoodinator with viewModel initialization, neither the view model nor the view controller know the coordinator for better abstraction.
 class HomeCoordinator: BaseCoordinator {
     private let viewModel: HomeViewModel
     
@@ -14,6 +15,7 @@ class HomeCoordinator: BaseCoordinator {
         self.viewModel = viewModel
     }
     
+    /// Start method to push HomeViewController as first entry of the navigation stack.
     override func start() {
         let viewController = HomeViewController()
         viewController.viewModel = viewModel
