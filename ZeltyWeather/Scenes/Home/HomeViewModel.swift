@@ -32,13 +32,14 @@ final class HomeViewModel {
     private let coreDataServiceType: CoreDataServiceType
     private let output: PassthroughSubject<Output, Never> = .init()
     private var cancellables = Set<AnyCancellable>()
-    
+    /// Navigation method initialized in home coordinator.
+    var pushToDetailViewController: () -> Void = {}
     /// Weather Api data mapped to WeatherResponse object and saved in database.
-    var weathers: [Weather] = []
+    private var weathers: [Weather] = []
     /// WeatherWithImage mapped with Weather object  and used as data source for the main table view. The difference is that weather has string url whereas weatherWithImage images are already downloaded.
     var weathersWithImage: [WeatherWithImage] = []
     /// The weather chosen by user from the main table view. It will be passed down to DetailViewModel.
-    var selectedWeather: WeatherWithImage?
+    var selectedWeatherWithImage: WeatherWithImage?
   
     init(weatherServiceType: WeatherServiceType = WeatherService(), coreDataServiceType: CoreDataServiceType = CoreDataService()) {
         self.weatherServiceType = weatherServiceType
@@ -47,6 +48,7 @@ final class HomeViewModel {
   
     // MARK: - Methods
     
+    // Bind method which transforms UX inputs received from view controller into concrete data.
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input.sink { [weak self] event in
             if let weakSelf = self {
@@ -60,7 +62,7 @@ final class HomeViewModel {
                         self?.output.send(.fetchWeatherDidFail(error: ApiError.noInternet))
                     }
                 case .forecastWeatherRowDidTap:
-                    print("Bonjour")
+                    weakSelf.pushToDetailViewController()
                 }
             }
         }.store(in: &cancellables)

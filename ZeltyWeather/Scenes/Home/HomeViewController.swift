@@ -8,9 +8,9 @@
 import UIKit
 import Combine
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController, UITextFieldDelegate {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     // Related to view model.
     private let input: PassthroughSubject<HomeViewModel.Input, Never> = .init()
@@ -18,16 +18,17 @@ class HomeViewController: UIViewController {
     var viewModel: HomeViewModel?
     
     // UI properties.
-    var cityTextField = UITextField()
-    var searchCityButton = UIButton()
-    var weatherTableView = UITableView()
-    let activityIndicator = UIActivityIndicatorView(style: .large)
-    var errorAlert = UIAlertController()
+    private let cityTextField = UITextField(frame: CGRect(x: 20, y: 80, width: UIScreen.main.bounds.width * 0.75, height: 45))
+    private let searchCityButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 60, y: 80, width: 30, height: 45))
+    private let weatherTableView = UITableView()
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
+    private var errorAlert = UIAlertController()
 
     // MARK: - ViewController life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cityTextField.delegate = self
         setUpUI()
         bind()
         input.send(.viewDidLoad)
@@ -47,7 +48,6 @@ class HomeViewController: UIViewController {
                         case .fetchWeatherDidSucceed:
                             /// Add dispatch queue of one second for the user to notice activity indicator and understand that the call is being made.
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                weakSelf.view.endEditing(true)
                                 weakSelf.weatherTableView.reloadData()
                                 weakSelf.activityIndicator.stopAnimating()
                                 weakSelf.weatherTableView.isHidden = false
@@ -76,16 +76,27 @@ class HomeViewController: UIViewController {
     @objc func searchCityButtonDidTap() {
         if let text = cityTextField.text {
             weatherTableView.isHidden = true
+            searchCityButton.isEnabled = false
             activityIndicator.startAnimating()
             input.send(.searchCityWeatherButtonDidTap(city: text))
         }
     }
     
-    // To dismiss the keyboard.
-    @objc func didTapView() {
-        view.endEditing(true)
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if let text = cityTextField.text {
+            if text.count > 0 {
+                searchCityButton.isEnabled = true
+            } else {
+                searchCityButton.isEnabled = false
+            }
+        }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
     private func presentAlert(message: String) {
         errorAlert = UIAlertController(title: "Erreur", message: message, preferredStyle: UIAlertController.Style.alert)
         errorAlert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -111,7 +122,6 @@ extension HomeViewController {
     
     private func setHorizontalStackView() {
         /// CityTextField frame and properties.
-        cityTextField = UITextField(frame: CGRect(x: 20, y: 80, width: UIScreen.main.bounds.width * 0.75, height: 45))
         cityTextField.layer.cornerRadius = 7.0
         cityTextField.layer.borderWidth = 1.0
         cityTextField.layer.borderColor = UIColor.gray.cgColor
@@ -125,12 +135,8 @@ extension HomeViewController {
         /// Add to parent view.
         view.addSubview(cityTextField)
         
-        /// To dismiss keyboard when user touches the view.
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapView))
-        view.addGestureRecognizer(tapGesture)
-        
         /// SearchCityButton frame properties.
-        searchCityButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 60, y: 80, width: 30, height: 45))
+        searchCityButton.isEnabled = false
         searchCityButton.addTarget(self, action: #selector(searchCityButtonDidTap), for: .touchUpInside)
         /// Set button image with white color for normal and disabled state.
         let originalImage = UIImage(systemName: "magnifyingglass")
@@ -150,6 +156,7 @@ extension HomeViewController {
         weatherTableView.separatorStyle = .singleLine
         weatherTableView.separatorColor = UIColor.gray
         weatherTableView.backgroundColor = .clear
+        weatherTableView.isUserInteractionEnabled = true
         
         /// Add it to parent view and set auto layout constraints.
         view.addSubview(weatherTableView)
@@ -187,8 +194,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         return 280
     }
     
-    /// DidSelectRow method.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        viewModel?.selectedWeatherWithImage = viewModel?.weathersWithImage[indexPath.row]
+        input.send(.forecastWeatherRowDidTap)
     }
 }

@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+final class DetailViewModel {
+    var selectedWeatherWithImage: WeatherWithImage
+    var popToHomeViewController: () -> Void = {}
+    
+    init(selectedWeatherWithImage: WeatherWithImage) {
+        self.selectedWeatherWithImage = selectedWeatherWithImage
+    }
+}

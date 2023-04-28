@@ -8,7 +8,7 @@
 import UIKit
 
 // HomeCoodinator with viewModel initialization, neither the view model nor the view controller know the coordinator for better abstraction.
-class HomeCoordinator: BaseCoordinator {
+final class HomeCoordinator: BaseCoordinator {
     private let viewModel: HomeViewModel
     
     init(viewModel: HomeViewModel) {
@@ -19,7 +19,14 @@ class HomeCoordinator: BaseCoordinator {
     override func start() {
         let viewController = HomeViewController()
         viewController.viewModel = viewModel
+        viewModel.pushToDetailViewController = pushToDetailCoordinator
         
         navigationController.pushViewController(viewController, animated: false)
+    }
+    
+    private func pushToDetailCoordinator() {
+        if let selectedWeather = self.viewModel.selectedWeatherWithImage {
+            self.start(coordinator: DetailCoordinator(viewModel: DetailViewModel(selectedWeatherWithImage: selectedWeather)))
+        }
     }
 }

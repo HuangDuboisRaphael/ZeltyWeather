@@ -8,7 +8,7 @@
 import UIKit
 
 // Coordinator to use in AppDelegate which would set the UIWindow with AppCoordinator navigation controller and delegate the flow to HomeCoordinator.
-class AppCoordinator: BaseCoordinator {
+final class AppCoordinator: BaseCoordinator {
     
     override func start() {
         removeChildCoordinators()

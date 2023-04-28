@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 // Convert weather description from API to french (not supported directly by the API).
 enum MainWeatherDescription: String {
